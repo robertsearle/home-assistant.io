@@ -21,7 +21,10 @@ ha_platforms:
   - conversation
 ---
 
-The **Ollama** {% term integration %} adds a conversation agent in Home Assistant powered by a local [Ollama](https://ollama.com/) server.
+The **Ollama** {% term integration %} adds a conversation agent in Home Assistant powered by a local [Ollama](https://ollama.com/) server or a [docker](https://hub.docker.com/r/ollama/ollama) image. If you use a docker image, please add this line to the `/etc/rc.local` file
+```
+docker run --rm  -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama:latest 
+```
 
 Controlling Home Assistant is an experimental feature that provides the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI is able to provide you information about your devices and control them.
 
